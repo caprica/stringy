@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+    commands:
+      - apt-get update -y
+      - apt-get install -y maven
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building application...
+      - mvn install
+      - echo Finished building application.
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - stringy-0.0.1-SNAPSHOT.jar
